@@ -54,7 +54,7 @@
     }
 
     function sendServiceIdToFlaskAndOpenLink(serviceId, ip) {
-        var magic = prompt("Please :");
+        var magic = prompt("Please enter the magic key:");
         if (magic !== null) {
             fetch('/update_variable', {
                 method: 'POST',
@@ -63,17 +63,26 @@
                 },
                 body: 'service_id=' + encodeURIComponent(serviceId) + '&magic=' + encodeURIComponent(magic),
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                alert('pass copied to clipboard');
-                window.open('http://' + ip, '_blank');
+                if (data.password) {
+                    navigator.clipboard.writeText(data.password).then(function() {
+                        alert('Password copied to clipboard!');
+                        window.open('http://' + ip, '_blank');
+                    }, function(err) {
+                        console.error('Could not copy password: ', err);
+                        alert('Error occurred while copying password. Please try again.');
+                    });
+                } else {
+                    alert('Service not found');
+                }
             })
             .catch((error) => {
                 alert('Error occurred. Please try again.');
             });
         }     
     }
-
+    
     function deleteService(serviceId) {
         if (confirm('Are you sure you want to delete this service?')) {
             fetch('/delete_service', {

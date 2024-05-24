@@ -132,8 +132,7 @@ def update_variable():
     if service:  # Vérifiez si le service existe
         # Si le service existe, décryptez le mot de passe avec la fonction decrypt_password
         password = decrypt_password(service.password, magic)
-        pc.copy(password)
-        return 'Success', 200
+        return jsonify({'password': password}), 200
     else:
         # Si le service n'existe pas, renvoyez un message d'erreur approprié
         return 'Service not found', 404
