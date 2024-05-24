@@ -1,0 +1,64 @@
+<!-- tasks.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Ajouter une nouvelle tâche</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="task" class="form-label">Tâche:</label>
+            <input type="text" class="form-control" id="task" name="task" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="project" class="form-label">Projet:</label>
+            <input type="text" class="form-control" id="project" name="project">
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="status" class="form-label">Statut:</label>
+             <!--    <input type="text" class="form-control" id="status" name="status"> -->
+             <select  class="form-select" id="status" name="status">
+                 <option value="Non commencée">Non commencée</option>
+                 <option value="En cours">En cours</option>
+                 <option value="Terminée">Terminée</option>
+                 <option value="En attente">En attente</option>
+                 <option value="En retard">En retard</option>
+             </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="date_livraison" class="form-label">Date de livraison:</label>
+                <input type="date" class="form-control" id="date_livraison" name="date_livraison">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="importance" class="form-label">Importance:</label>
+                <select class="form-select" id="importance" name="importance">
+                  <option value="Faible">Faible</option>
+                  <option value="Moyenne">Moyenne</option>
+                  <option value="Élevée">Élevée</option>
+                  <option value="Critique">Critique</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="risque" class="form-label">Risque:</label>
+                <select class="form-select" id="risque" name="risque">
+                  <option value="Faible">Faible</option>
+                  <option value="Moyenne">Moyenne</option>
+                  <option value="Élevée">Élevée</option>
+                  <option value="Critique">Critique</option>
+              </select>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="commentaire" class="form-label">Commentaire:</label>
+            <textarea class="form-control" id="commentaire" name="commentaire"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Ajouter la tâche</button>
+    </form>
+</div>
+{% endblock %}

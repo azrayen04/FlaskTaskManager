@@ -1,0 +1,49 @@
+{% extends "basegp.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Add Service</h1>
+    
+    <!-- Section des services -->
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form id="service-form" method="post">
+                <div class="mb-3">
+                    <label for="serviceName" class="form-label">Nom du Service</label>
+                    <input type="text" class="form-control" id="serviceName" name="serviceName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="serviceIP" class="form-label">Adresse IP du Service</label>
+                    <input type="text" class="form-control" id="serviceIP" name="serviceIP" required>
+                </div>
+                <div class="mb-3">
+                    <label for="serviceUsername" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="serviceUsername" name="serviceUsername" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de Passe</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="commonPassword" class="form-label">Mot de Passe de Chiffrement</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="commonPassword" name="commonPassword" required>
+                        <button class="btn btn-outline-secondary" type="button" id="toggleCommonPassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

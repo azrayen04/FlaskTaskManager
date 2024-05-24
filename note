@@ -1,0 +1,4 @@
+python -m venv env
+
+source venv/Scripts/activate
+deactivate

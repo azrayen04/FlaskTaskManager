@@ -1,0 +1,36 @@
+<!-- schedule.html -->
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+  <h2>Liste des tâches</h2>
+  <div class="row">
+    {% for task_date, task_list in data %}
+    <div class="col">
+      <h6>{{ task_date }}</h6>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Task</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in task_list %}
+          <tr>
+            <td class="{% if task.status == 'Terminée' %}text-decoration-line-through{% endif %}" >{{ task.task }}</td>
+            <td class="p-1"> 
+              <button class="btn btn-sm btn-success success-btn" data-item-id="{{ task.id }}"></button> <!-- Bouton pour marquer comme terminée -->
+              <button class="btn  btn-sm btn-danger delete-btn" data-item-id="{{ task.id }}" ></button> <!-- Bouton pour supprimer -->
+              <button class="btn btn-sm btn-warning edit-btn" data-item-id="{{ task.id }}"></button> <!-- Bouton pour modifier -->
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

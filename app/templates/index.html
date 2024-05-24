@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+  
+<div class="container mt-4">
+    <h2>Liste des tâches</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Task en retard</th>
+          <th>État</th>
+          <th>Date de livraison</th>
+          <th>Commentaire</th>
+          <th>Action</th> <!-- Ajout de la colonne d'action -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks_retard %}
+        <tr>
+            <td>{{ task.task }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.date_livraison }}</td>
+            <td>{{ task.commentaire }}</td>
+            <td>
+                <button class="btn btn-sm btn-success success-btn" data-item-id="{{ task.id }}"></button> 
+                <button class="btn  btn-sm btn-danger delete-btn" data-item-id="{{ task.id }}" ></button> <!-- Bouton pour supprimer -->
+                <button class="btn btn-sm btn-warning edit-btn" data-item-id="{{ task.id }}"></button>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+      <thead>
+        <tr>
+          <th>Task en cours</th>
+          <th>État</th>
+          <th>Date de livraison</th>
+          <th>Commentaire</th>
+          <th>Action</th> <!-- Ajout de la colonne d'action -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks_cours %}
+        <tr>
+            <td>{{ task.task }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.date_livraison }}</td>
+            <td>{{ task.commentaire }}</td>
+            <td>
+                <button class="btn btn-sm btn-success success-btn" data-item-id="{{ task.id }}"></button> 
+                <button class="btn  btn-sm btn-danger delete-btn" data-item-id="{{ task.id }}" ></button> <!-- Bouton pour supprimer -->
+                <button class="btn btn-sm btn-warning edit-btn" data-item-id="{{ task.id }}"></button>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+      <thead>
+        <tr>
+          <th>Task importante</th>
+          <th>État</th>
+          <th>Date de livraison</th>
+          <th>Commentaire</th>
+          <th>Action</th> <!-- Ajout de la colonne d'action -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks_importante %}
+        <tr>
+            <td>{{ task.task }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.date_livraison }}</td>
+            <td>{{ task.commentaire }}</td>
+            <td>
+                <button class="btn btn-sm btn-success success-btn" data-item-id="{{ task.id }}"></button> 
+                <button class="btn  btn-sm btn-danger delete-btn" data-item-id="{{ task.id }}" ></button> <!-- Bouton pour supprimer -->
+                <button class="btn btn-sm btn-warning edit-btn" data-item-id="{{ task.id }}"></button>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+      <thead>
+        <tr>
+          <th>Task en attente</th>
+          <th>État</th>
+          <th>Date de livraison</th>
+          <th>Commentaire</th>
+          <th>Action</th> <!-- Ajout de la colonne d'action -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks_attente %}
+        <tr>
+            <td>{{ task.task }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.date_livraison }}</td>
+            <td>{{ task.commentaire }}</td>
+            <td>
+                <button class="btn btn-sm btn-success success-btn" data-item-id="{{ task.id }}"></button> 
+                <button class="btn  btn-sm btn-danger delete-btn" data-item-id="{{ task.id }}" ></button> <!-- Bouton pour supprimer -->
+                <button class="btn btn-sm btn-warning edit-btn" data-item-id="{{ task.id }}"></button>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+{% endblock %}
